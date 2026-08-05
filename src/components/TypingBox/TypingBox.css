@@ -1,0 +1,76 @@
+.typing-box{
+
+    background:var(--surface-color);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.typing-header{
+
+    padding:16px 20px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.typing-header h2{
+
+    font-size:20px;
+
+    color:var(--text-primary);
+
+}
+
+.typing-body{
+
+    padding:20px;
+
+}
+
+.typing-input{
+
+    width:100%;
+
+    min-height:180px;
+
+    resize:none;
+
+    background:#111827;
+
+    color:var(--text-primary);
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:18px;
+
+    font-size:26px;
+
+    line-height:1.8;
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Mangal",
+        sans-serif;
+
+}
+
+.typing-input::placeholder{
+
+    color:var(--text-secondary);
+
+}
+
+.typing-input:focus{
+
+    border-color:var(--primary);
+
+}
