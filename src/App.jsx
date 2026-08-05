@@ -10,6 +10,7 @@ function App() {
       <Layout>
         <Dashboard />
       </Layout>
+      
     </>
   );
 }
