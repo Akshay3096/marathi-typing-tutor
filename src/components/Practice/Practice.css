@@ -1,0 +1,57 @@
+.practice{
+
+    background:var(--surface-color);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.practice-header{
+
+    padding:16px 20px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.practice-header h2{
+
+    font-size:20px;
+
+    color:var(--text-primary);
+
+}
+
+.practice-content{
+
+    min-height:180px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.practice-text{
+
+    font-size:28px;
+
+    line-height:1.9;
+
+    color:var(--text-primary);
+
+    user-select:none;
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Mangal",
+        sans-serif;
+}
