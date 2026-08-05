@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
 import Layout from "./components/Layout/Layout";
-import StatCard from "./components/StatCard/StatCard";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -8,12 +8,7 @@ function App() {
       <Header />
 
       <Layout>
-
-        <StatCard
-          title="WPM"
-          value="0"
-        />
-
+        <Dashboard />
       </Layout>
     </>
   );

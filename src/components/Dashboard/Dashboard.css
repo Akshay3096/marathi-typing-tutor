@@ -1,0 +1,33 @@
+.dashboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.dashboard-section{
+
+    background:var(--surface-color);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    padding:20px;
+
+    min-height:120px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.dashboard-section h2{
+
+    color:var(--text-primary);
+
+    font-size:22px;
+
+}
