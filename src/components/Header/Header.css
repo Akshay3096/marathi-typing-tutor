@@ -1,0 +1,47 @@
+.header{
+
+    width:100%;
+
+    background:var(--surface-color);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+.header-container{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    height:70px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+}
+
+.version{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+}

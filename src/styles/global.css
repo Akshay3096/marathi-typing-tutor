@@ -1,0 +1,75 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg-color);
+
+    color:var(--text-primary);
+
+    font-family:
+
+    "Noto Sans Devanagari",
+    "Mangal",
+    Arial,
+    sans-serif;
+
+    min-height:100vh;
+
+    line-height:1.5;
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:var(--transition);
+
+}
+
+input,
+textarea{
+
+    outline:none;
+
+    border:none;
+
+    font:inherit;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
