@@ -1,0 +1,13 @@
+.layout{
+    width:100%;
+    padding:30px 0;
+}
+
+.layout-container{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:auto;
+}
