@@ -1,34 +1,33 @@
 import "./Dashboard.css";
 
 import Statistics from "../Statistics/Statistics";
+import Controls from "../Controls/Controls";
 import Practice from "../Practice/Practice";
 
 function Dashboard() {
+  return (
+    <div className="dashboard">
 
-    return (
+      <Statistics />
 
-        <div className="dashboard">
+      <Controls />
 
-            <Statistics />
+      <Practice />
 
-            <Practice />
+      <section className="dashboard-section">
+        <h2>Typing Box</h2>
+      </section>
 
-            <section className="dashboard-section">
-                <h2>Typing Box</h2>
-            </section>
+      <section className="dashboard-section">
+        <h2>Keyboard</h2>
+      </section>
 
-            <section className="dashboard-section">
-                <h2>Keyboard</h2>
-            </section>
+      <section className="dashboard-section">
+        <h2>Finger Guide</h2>
+      </section>
 
-            <section className="dashboard-section">
-                <h2>Finger Guide</h2>
-            </section>
-
-        </div>
-
-    );
-
+    </div>
+  );
 }
 
 export default Dashboard;
