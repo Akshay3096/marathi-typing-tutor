@@ -5,32 +5,44 @@ import Controls from "../Controls/Controls";
 import Practice from "../Practice/Practice";
 import TypingBox from "../TypingBox/TypingBox";
 
+import { useTyping } from "../../hooks/useTyping";
+
 function Dashboard() {
+  const {
+    currentParagraph,
+    typedText,
+    handleTyping,
+    restartTyping,
+    nextParagraph,
+  } = useTyping();
 
-    return (
+  return (
+    <div className="dashboard">
+      <Statistics />
 
-        <div className="dashboard">
+      <Controls
+        onRestart={restartTyping}
+        onNextParagraph={nextParagraph}
+      />
 
-            <Statistics />
+      <Practice
+        paragraph={currentParagraph.text}
+      />
 
-            <Controls />
+      <TypingBox
+        value={typedText}
+        onChange={handleTyping}
+      />
 
-            <Practice />
+      <section className="dashboard-section">
+        <h2>Keyboard</h2>
+      </section>
 
-            <TypingBox />
-
-            <section className="dashboard-section">
-                <h2>Keyboard</h2>
-            </section>
-
-            <section className="dashboard-section">
-                <h2>Finger Guide</h2>
-            </section>
-
-        </div>
-
-    );
-
+      <section className="dashboard-section">
+        <h2>Finger Guide</h2>
+      </section>
+    </div>
+  );
 }
 
 export default Dashboard;
