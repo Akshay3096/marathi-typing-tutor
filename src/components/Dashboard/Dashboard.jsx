@@ -5,11 +5,22 @@ import Controls from "../Controls/Controls";
 import Practice from "../Practice/Practice";
 import TypingBox from "../TypingBox/TypingBox";
 
+import { useStatistics } from "../../hooks";
+
 function Dashboard({ typing }) {
+  const statistics = useStatistics(
+    typing.characterStatuses,
+    0 // Timer Step मध्ये हा value dynamic होईल
+  );
+
   return (
     <div className="dashboard">
-
-      <Statistics />
+      <Statistics
+        statistics={{
+          ...statistics,
+          timer: "05:00",
+        }}
+      />
 
       <Controls
         onRestart={typing.restartTyping}
@@ -32,7 +43,6 @@ function Dashboard({ typing }) {
       <section className="dashboard-section">
         <h2>Finger Guide</h2>
       </section>
-
     </div>
   );
 }
