@@ -17,7 +17,7 @@ function Dashboard({ typing }) {
       />
 
       <Practice
-        paragraph={typing.currentParagraph.text}
+        characterStatuses={typing.characterStatuses}
       />
 
       <TypingBox

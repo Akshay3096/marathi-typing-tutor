@@ -1,6 +1,6 @@
 import "./Practice.css";
 
-function Practice({ paragraph }) {
+function Practice({ characterStatuses }) {
   return (
     <section className="practice">
 
@@ -9,9 +9,20 @@ function Practice({ paragraph }) {
       </div>
 
       <div className="practice-content">
+
         <p className="practice-text">
-          {paragraph}
+
+          {characterStatuses.map((item, index) => (
+            <span
+              key={index}
+              className={`character ${item.status}`}
+            >
+              {item.character}
+            </span>
+          ))}
+
         </p>
+
       </div>
 
     </section>
