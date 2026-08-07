@@ -2,8 +2,10 @@ import "./Dashboard.css";
 
 import Statistics from "../Statistics/Statistics";
 import Controls from "../Controls/Controls";
+import ProgressBar from "../ProgressBar/ProgressBar";
 import Practice from "../Practice/Practice";
 import TypingBox from "../TypingBox/TypingBox";
+import Keyboard from "../Keyboard/Keyboard";
 
 import { useStatistics } from "../../hooks/useStatistics";
 
@@ -14,6 +16,11 @@ function Dashboard({ typing, timer }) {
     typing.characterStatuses,
     elapsedSeconds
   );
+
+  const currentCharacter =
+    typing.characterStatuses.find(
+      (item) => item.status === "current"
+    )?.character || "";
 
   return (
     <div className="dashboard">
@@ -35,6 +42,11 @@ function Dashboard({ typing, timer }) {
         }}
       />
 
+      <ProgressBar
+        typedCharacters={statistics.typedCharacters}
+        totalCharacters={typing.paragraphCharacters.length}
+      />
+
       <Practice
         characterStatuses={typing.characterStatuses}
       />
@@ -45,9 +57,9 @@ function Dashboard({ typing, timer }) {
         disabled={timer.isFinished}
       />
 
-      <section className="dashboard-section">
-        <h2>Keyboard</h2>
-      </section>
+      <Keyboard
+        currentCharacter={currentCharacter}
+      />
 
       <section className="dashboard-section">
         <h2>Finger Guide</h2>
