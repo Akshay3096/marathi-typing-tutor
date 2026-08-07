@@ -1,15 +1,34 @@
 import { useEffect, useState } from "react";
 import { formatTime } from "../utils";
 
-const DEFAULT_TIME = 300; // 5 Minutes
+/**
+ * Timer Hook
+ *
+ * Starts automatically on first typing.
+ * Supports reset and stop.
+ *
+ * @param {boolean} isTyping
+ * @param {number} initialTime
+ */
+export function useTimer(isTyping, initialTime = 300) {
+  const [timeLeft, setTimeLeft] = useState(initialTime);
+  const [isRunning, setIsRunning] = useState(false);
 
-export function useTimer(isRunning) {
-  const [timeLeft, setTimeLeft] = useState(DEFAULT_TIME);
+  // Start timer on first typing
+  useEffect(() => {
+    if (isTyping && !isRunning && timeLeft > 0) {
+      setIsRunning(true);
+    }
+  }, [isTyping, isRunning, timeLeft]);
 
+  // Countdown
   useEffect(() => {
     if (!isRunning) return;
 
-    if (timeLeft <= 0) return;
+    if (timeLeft <= 0) {
+      setIsRunning(false);
+      return;
+    }
 
     const interval = setInterval(() => {
       setTimeLeft((previous) => previous - 1);
@@ -18,14 +37,23 @@ export function useTimer(isRunning) {
     return () => clearInterval(interval);
   }, [isRunning, timeLeft]);
 
+  // Reset timer
   function resetTimer() {
-    setTimeLeft(DEFAULT_TIME);
+    setTimeLeft(initialTime);
+    setIsRunning(false);
+  }
+
+  // Stop timer
+  function stopTimer() {
+    setIsRunning(false);
   }
 
   return {
     timeLeft,
     formattedTime: formatTime(timeLeft),
-    resetTimer,
+    isRunning,
     isFinished: timeLeft === 0,
+    resetTimer,
+    stopTimer,
   };
 }

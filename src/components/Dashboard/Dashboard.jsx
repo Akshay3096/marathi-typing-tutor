@@ -5,12 +5,14 @@ import Controls from "../Controls/Controls";
 import Practice from "../Practice/Practice";
 import TypingBox from "../TypingBox/TypingBox";
 
-import { useStatistics } from "../../hooks";
+import { useStatistics } from "../../hooks/useStatistics";
 
-function Dashboard({ typing }) {
+function Dashboard({ typing, timer }) {
+  const elapsedSeconds = 300 - timer.timeLeft;
+
   const statistics = useStatistics(
     typing.characterStatuses,
-    0 // Timer Step मध्ये हा value dynamic होईल
+    elapsedSeconds
   );
 
   return (
@@ -18,13 +20,19 @@ function Dashboard({ typing }) {
       <Statistics
         statistics={{
           ...statistics,
-          timer: "05:00",
+          timer: timer.formattedTime,
         }}
       />
 
       <Controls
-        onRestart={typing.restartTyping}
-        onNextParagraph={typing.nextParagraph}
+        onRestart={() => {
+          typing.restartTyping();
+          timer.resetTimer();
+        }}
+        onNextParagraph={() => {
+          typing.nextParagraph();
+          timer.resetTimer();
+        }}
       />
 
       <Practice
@@ -34,6 +42,7 @@ function Dashboard({ typing }) {
       <TypingBox
         value={typing.typedText}
         onChange={typing.handleTyping}
+        disabled={timer.isFinished}
       />
 
       <section className="dashboard-section">

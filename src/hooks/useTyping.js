@@ -35,6 +35,9 @@ export function useTyping() {
     );
   }, [paragraphCharacters, typedCharacters]);
 
+  // Has user started typing?
+  const isTyping = typedText.length > 0;
+
   // Handle typing
   function handleTyping(value) {
     setTypedText(value);
@@ -56,19 +59,13 @@ export function useTyping() {
 
   return {
     currentParagraph,
-
     typedText,
-
     paragraphCharacters,
-
     typedCharacters,
-
     characterStatuses,
-
+    isTyping,
     handleTyping,
-
     restartTyping,
-
     nextParagraph,
   };
 }

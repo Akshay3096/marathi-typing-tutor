@@ -5,23 +5,23 @@ function Statistics({ statistics }) {
   const stats = [
     {
       title: "WPM",
-      value: statistics.wpm,
+      value: statistics?.wpm ?? 0,
     },
     {
       title: "CPM",
-      value: statistics.cpm,
+      value: statistics?.cpm ?? 0,
     },
     {
       title: "Accuracy",
-      value: `${statistics.accuracy}%`,
+      value: `${statistics?.accuracy ?? 100}%`,
     },
     {
       title: "Mistakes",
-      value: statistics.wrongCharacters,
+      value: statistics?.wrongCharacters ?? 0,
     },
     {
       title: "Timer",
-      value: statistics.timer,
+      value: statistics?.timer ?? "05:00",
     },
   ];
 

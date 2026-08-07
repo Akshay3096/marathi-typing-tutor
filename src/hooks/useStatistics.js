@@ -29,25 +29,28 @@ export function useStatistics(characterStatuses, elapsedSeconds = 0) {
 
     const typedCharacters = correctCharacters + wrongCharacters;
 
+    const accuracy = calculateAccuracy(
+      correctCharacters,
+      typedCharacters
+    );
+
+    const cpm = calculateCPM(
+      correctCharacters,
+      elapsedSeconds
+    );
+
+    const wpm = calculateWPM(
+      correctCharacters,
+      elapsedSeconds
+    );
+
     return {
       correctCharacters,
       wrongCharacters,
       typedCharacters,
-
-      accuracy: calculateAccuracy(
-        correctCharacters,
-        typedCharacters
-      ),
-
-      cpm: calculateCPM(
-        correctCharacters,
-        elapsedSeconds
-      ),
-
-      wpm: calculateWPM(
-        correctCharacters,
-        elapsedSeconds
-      ),
+      accuracy,
+      cpm,
+      wpm,
     };
   }, [characterStatuses, elapsedSeconds]);
 }

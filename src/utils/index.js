@@ -2,7 +2,8 @@ export * from "./constants";
 export * from "./splitGraphemes";
 export * from "./compareCharacters";
 export * from "./getCharacterStatuses";
-export * from "./formatTime";
+
 export * from "./calculateAccuracy";
 export * from "./calculateCPM";
 export * from "./calculateWPM";
+export * from "./formatTime";
